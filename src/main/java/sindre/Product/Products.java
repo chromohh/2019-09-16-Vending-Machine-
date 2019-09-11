@@ -15,7 +15,7 @@ public abstract class Products {
         this.productNumber = productNumber;
     }
 
-    public static String examineProduct(Products asd){
+    public String examineProduct(Products asd){
         String productExamine = "name: "+asd.name+"\nprice: "+asd.price+"\nkcal: "+asd.kcal+"\nproduct info: "+asd.productInfo;
         System.out.println(productExamine);
         return productExamine;
