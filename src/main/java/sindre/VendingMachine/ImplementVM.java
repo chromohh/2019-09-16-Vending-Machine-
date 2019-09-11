@@ -11,7 +11,7 @@ public class ImplementVM implements VendingMachine{
         Femtio(50),
         Hundra(100),
         Femhundra(500),
-        Tusen(100);
+        Tusen(1000);
         private final int value;
         Money(int value) {
             this.value = value;
