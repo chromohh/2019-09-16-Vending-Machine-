@@ -22,4 +22,10 @@ public abstract class Products {
     }
 
     public abstract String useProduct();
+
+    public String getName() {return name; }
+    public int getPrice() {return price; }
+    public int getKcal() {return kcal; }
+    public String getProductInfo() {return productInfo; }
+    public int getProductNumber() {return productNumber; }
 }
