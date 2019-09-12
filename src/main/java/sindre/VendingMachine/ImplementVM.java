@@ -47,22 +47,33 @@ public class ImplementVM implements VendingMachine{
     }
     @Override
     public Products request(int productNumber) {
-        return null;
+        for(int i = 0; i < productArr.length; i++){
+            if(productArr[i].getProductNumber() == productNumber || moneyPool >= productArr[i].getPrice()){
+                moneyPool = moneyPool - productArr[i].getPrice();
+                return productArr[i];
+            }
+        }
+        throw new IllegalArgumentException("Product Does not exist or not enough money");
     }
 
     @Override
     public int endSession() {
-        return 0;
+        int ret = moneyPool;
+        moneyPool = 0;
+        return ret;
     }
 
     @Override
     public String getDescription(int productNumber) {
-        return null;
+        for(int i = 0; i < productArr.length; i++){
+            if(productArr[i].getProductNumber() == productNumber){ return productArr[i].getProductInfo();}
+        }
+        throw new IllegalArgumentException("Product Does not exist");
     }
 
     @Override
     public int getBalance() {
-        return 0;
+        return moneyPool;
     }
 
     @Override
