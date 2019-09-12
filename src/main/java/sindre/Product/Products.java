@@ -7,6 +7,7 @@ public abstract class Products {
     protected String productInfo;
     protected int productNumber;
 
+
     public Products(String name, String productInfo, int kcal, int price, int productNumber){
         this.name = name;
         this.productInfo = productInfo;
@@ -28,4 +29,12 @@ public abstract class Products {
     public int getKcal() {return kcal; }
     public String getProductInfo() {return productInfo; }
     public int getProductNumber() {return productNumber; }
+    public String toString() {
+        return "name='" + name + '\'' +
+                ", price=" + price +
+                ", kcal=" + kcal +
+                ", productInfo='" + productInfo + '\'' +
+                ", productNumber=" + productNumber +
+                '}';
+    }
 }

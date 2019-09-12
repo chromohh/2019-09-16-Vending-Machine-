@@ -78,6 +78,11 @@ public class ImplementVM implements VendingMachine{
 
     @Override
     public String[] getProducts() {
-        return new String[0];
+        String[] ret = new String[productArr.length];
+        for(int i = 0; i < productArr.length; i++){
+            System.out.println(productArr[i].toString());
+            ret[i] = productArr[i].toString();
+        }
+        return ret;
     }
 }

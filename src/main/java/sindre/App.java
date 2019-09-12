@@ -10,7 +10,6 @@ public class App
 {
     public static void main( String[] args )
     {
-       Products asd = new Candy("basd", "basd", 121, 125,124);
-       asd.examineProduct(asd);
+       
     }
 }
