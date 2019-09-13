@@ -34,26 +34,32 @@ public class ImplementVM implements VendingMachine{
 
     @Override
     public void addCurrency(int money) {
-        boolean wasFound = false;
         for (Money x : Money.values()) {
+            try{
             if (money == x.getValue()) {
                 moneyPool = moneyPool + money;
-                wasFound = true;
+            }}
+            catch(NullPointerException e){
+                System.out.println("wrong input");
             }
         }
-        if (!wasFound) {
-            throw new IllegalArgumentException("Wrong input, only 1,5,10,20,50,100,500,1000");
-        }
+
     }
     @Override
     public Products request(int productNumber) {
-        for(int i = 0; i < productArr.length; i++){
-            if(productArr[i].getProductNumber() == productNumber || moneyPool >= productArr[i].getPrice()){
+
+           for(int i = 0; i < productArr.length; i++){
+
+               try{if(productArr[i].getProductNumber() == productNumber || moneyPool >= productArr[i].getPrice()){
                 moneyPool = moneyPool - productArr[i].getPrice();
                 return productArr[i];
             }
-        }
-        throw new IllegalArgumentException("Product Does not exist or not enough money");
+               }catch (NullPointerException e){
+                   System.out.println("not a product");
+               }
+
+       }
+        return null;
     }
 
     @Override
@@ -80,7 +86,7 @@ public class ImplementVM implements VendingMachine{
     public String[] getProducts() {
         String[] ret = new String[productArr.length];
         for(int i = 0; i < productArr.length; i++){
-            System.out.println(productArr[i].toString());
+            System.out.println(productArr[i].examineProduct(productArr[i]));
             ret[i] = productArr[i].toString();
         }
         return ret;
